@@ -121,7 +121,6 @@ While I felt that my solution met all of the required specifications I wanted to
 To better help someone run and test my java solution I am adding some API documentation below.
 
 ## API Documentation #
-
 <details>
  <summary><code>GET</code> <code><b>/api/tool-store/checkout</b></code> <code>(returns a text output of the agreement)</code></summary>
 
@@ -247,3 +246,5 @@ To better help someone run and test my java solution I am adding some API docume
 >  curl --location 'http://localhost:8080/api/tool-store/tool/pricing/Chainsaw'
 
 </details>
+
+[Postman Collection](https://github.com/jurentie/JR0523/blob/main/postman_collection/tools%20store.postman_collection.json)
