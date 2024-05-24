@@ -85,7 +85,7 @@ Now that I had all of the formatting and conversions out of the way it was time 
 
 ### Step 3: Input Validation ###
 
-After completing all the logic necessary for the Agreement class I wanted to address the issue of user input validation. For this I added `org.springframework.boot:spring-boot-starter-validation` to my `gradle.build` file to allow me to utilize spring boot validation annotations to check the input of the request body being passed to my `/agreement` API. I decided to add some extra validation on all the passed in variables, but made sure to include the requested check of percent being a whole number between 0 - 100 as well as rental days being 1 or greater. I did not decide to add input validation to my other endpoints, as these were mostly created for testing purposes anyway, and in an interest of saving time.
+After completing all the logic necessary for the Agreement class I wanted to address the issue of user input validation. For this I added `org.springframework.boot:spring-boot-starter-validation` to my `gradle.build` file to allow me to utilize spring boot validation annotations to check the input of the request body being passed to my `/api/tool-store/checkout` API. I decided to add some extra validation on all the passed in variables, but made sure to include the requested check of percent being a whole number between 0 - 100 as well as rental days being 1 or greater. I did not decide to add input validation to my other endpoints, as these were mostly created for testing purposes anyway, and in an interest of saving time.
 
 ### Step 4: Testing ###
 
