@@ -93,6 +93,9 @@ With my API up and running and working as I expected it to, as validated by runn
 
 I ensure that all six test cases, as well as some additional tests, were provided in my two test classes `ToolsControllerTest` and `ToolsServiceTest`. Since user input validation was being done at the controller level Test #1 is found in `ToolsControllerTest.getAgreement_returnsErrorMessage_discountIsGreaterThan100()` by passing a discount percent greater than 100. The remaining 5 tests can be found in `ToolsServiceTest` as I tested that the agreement was being configured appropriately with all the given test data. 
 
+In an actual real world application that was being pushed to production and exposed to users it would be standard to ensure a testing thershold of at least 90% code coverage, but for the sake of this exercise I wanted to hit the key tests and requirements.
+
+
 ### Step 5: Print Output to the Console ###
 
 The thing I kept coming back to as I was creating this java service was the final ask of the exercise which specifies:
