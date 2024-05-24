@@ -1,0 +1,88 @@
+{
+	"info": {
+		"_postman_id": "836aee5e-4098-4806-8d04-559e46a0c707",
+		"name": "tools store",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "35150994"
+	},
+	"item": [
+		{
+			"name": "get tool",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/tool-store/tool/:toolCode",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"tool-store",
+						"tool",
+						":toolCode"
+					],
+					"variable": [
+						{
+							"key": "toolCode",
+							"value": "CHNS"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get tool pricing",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/tool-store/tool/pricing/:toolType",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"tool-store",
+						"tool",
+						"pricing",
+						":toolType"
+					],
+					"variable": [
+						{
+							"key": "toolType",
+							"value": "Chainsaw"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "checkout",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"toolCode\": \"CHNS\",\r\n    \"checkoutDate\": \"7/2/15\",\r\n    \"rentalDays\": 5,\r\n    \"discount\": 25\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/tool-store/checkout"
+			},
+			"response": []
+		}
+	]
+}
