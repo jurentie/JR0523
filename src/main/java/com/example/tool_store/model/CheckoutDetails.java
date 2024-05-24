@@ -13,11 +13,11 @@ public class CheckoutDetails {
     private String toolCode;
 
     @NotNull(message = "Rental Days is Mandatory")
-    @Min(value = 1, message = "Rental Days must be greater 1 or greater")
+    @Min(value = 1, message = "Rental Days must be 1 or greater")
     private Integer rentalDays;
 
     @NotNull(message = "Discount is Mandatory")
-    @Min(value = 1, message = "Discount should be a whole number between 0 - 100")
+    @Min(value = 0, message = "Discount should be a whole number between 0 - 100")
     @Max(value = 100, message = "Discount should be a whole number between 0 - 100")
     @Digits(integer = 2, fraction = 0, message = "Discount should be a whole number between 0 - 100")
     private Double discount;

@@ -4,6 +4,7 @@ import com.example.tool_store.model.CheckoutDetails;
 import com.example.tool_store.model.Tool;
 import com.example.tool_store.model.ToolPricing;
 import lombok.Getter;
+import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -13,6 +14,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
 @Getter
+@Setter
 public class Agreement {
 
     private String toolCode;
@@ -43,6 +45,8 @@ public class Agreement {
         this.finalCharge = preDiscountCharge - discountAmount;
     }
 
+    public Agreement(){}
+
     // Get a LocalDate from the string input of a date
     private LocalDate parseDateFromString(String dateString){
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("[MM][M]/[dd][d]/yy");
@@ -54,7 +58,7 @@ public class Agreement {
     private void calculateChargeDays(ToolPricing toolPricing){
         LocalDate currDate = checkoutDate;
         Integer daysToCharge = 0;
-        for(int i = 0; i < rentalDays - 1; i++){
+        for(int i = 0; i < rentalDays; i++){
             currDate = currDate.plusDays(1);
             if (chargeOnDay(currDate, toolPricing))
                 daysToCharge++;
@@ -70,14 +74,20 @@ public class Agreement {
         Boolean weekendCharges = toolPricing.getWeekendCharge();
         Boolean holidayCharges = toolPricing.getHolidayCharge();
 
-        // If it's the fourth of july and we do not charge on holidays return false
-        if(formatDate(date).contains("07/04") && !holidayCharges){
+        // If it's the fourth of july see if we charge for holidays
+        if(formatDate(date).contains("07/04")){
+            if(holidayCharges){
+                return true;
+            }
             return false;
         }
-        // If it is labor day and we do not charge on holidays return false
+        // If it is labor day see if we charge for holidays
         else if((date.getMonth().toString().equals("SEPTEMBER") &&
                 date.getDayOfMonth() <= 7 &&
-                date.getDayOfWeek().toString().equals("MONDAY")) && !holidayCharges){
+                date.getDayOfWeek().toString().equals("MONDAY"))){
+            if(holidayCharges){
+                return true;
+            }
             return false;
         }
         // If it is a mon - fri and we charge for days of the week return true
