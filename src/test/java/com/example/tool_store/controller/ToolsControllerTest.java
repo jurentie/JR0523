@@ -110,6 +110,7 @@ public class ToolsControllerTest {
 
     }
 
+    // Test #1
     @Test
     public void getAgreement_returnsErrorMessage_discountIsGreaterThan100() throws Exception{
         String expectedResponse = "{\"discount\":\"Discount should be a whole number between 0 - 100\"}";
@@ -131,7 +132,6 @@ public class ToolsControllerTest {
 
     }
 
-    // Test #1
     @Test
     public void getAgreement_returnsErrorMessage_discountIsLessThan100() throws Exception{
         String expectedResponse = "{\"discount\":\"Discount should be a whole number between 0 - 100\"}";

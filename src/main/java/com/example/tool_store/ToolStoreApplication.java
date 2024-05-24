@@ -22,7 +22,7 @@ public class ToolStoreApplication {
 		CheckoutDetails checkoutDetails = new CheckoutDetails();
 		checkoutDetails.setToolCode("LADW");
 		checkoutDetails.setCheckoutDate("7/2/20");
-		checkoutDetails.setRentalDays(5);
+		checkoutDetails.setRentalDays(3);
 		checkoutDetails.setDiscount(10.0);
 		String agreement = controller.getAgreement(checkoutDetails);
 
