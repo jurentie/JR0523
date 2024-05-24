@@ -4,6 +4,7 @@ import com.example.tool_store.model.CheckoutDetails;
 import com.example.tool_store.model.Tool;
 import com.example.tool_store.model.ToolPricing;
 import com.example.tool_store.service.ToolsService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -17,7 +18,7 @@ public class ToolsController {
 
     // get a string representation of the agreement
     @GetMapping(value = "/checkout", produces = MediaType.TEXT_PLAIN_VALUE)
-    public String getAgreement(@RequestBody CheckoutDetails checkoutDetails){
+    public String getAgreement(@Valid @RequestBody CheckoutDetails checkoutDetails){
         return toolsService.getAgreementOnCheckout(checkoutDetails).toString();
     }
 
